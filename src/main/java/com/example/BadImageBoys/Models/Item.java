@@ -1,15 +1,20 @@
 package com.example.BadImageBoys.Models;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "Items", discriminatorType = DiscriminatorType.STRING)
 public class Item
 {
-    //an article should have an
-    // Writer (links to the user class)
-    // Type (for example the Article type should have text, vid should have a video link etc  )
-    // Images?
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long Id;
 
-    private int Id;
+    @ManyToOne
+
     private User Writer;
     private String Title;
     private String Description;
@@ -27,11 +32,11 @@ public class Item
         ReleaseDate = releaseDate;
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         Id = id;
     }
 

@@ -20,8 +20,6 @@ public class HomeController
     @RequestMapping("/")
     public String hello()
     {
-        User newUser = new User(0,"admin");
-        userService.save(newUser);
         return "Hello User";
     }
 }
