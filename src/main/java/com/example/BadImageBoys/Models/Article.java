@@ -18,8 +18,8 @@ public class Article extends Item
 
     }
 
-    public Article(int id, User writer, String title, String description, Date releaseDate, byte[] firstImage, byte[] secondImage, String link) {
-        super(id, writer, title, description, releaseDate);
+    public Article(User writer, String title, String description, Date releaseDate, byte[] firstImage, byte[] secondImage, String link) {
+        super(writer, title, description, releaseDate);
         FirstImage = firstImage;
         SecondImage = secondImage;
         Link = link;

@@ -6,7 +6,6 @@ import java.util.Date;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "Items", discriminatorType = DiscriminatorType.STRING)
 public class Item
 {
     @Id
@@ -14,7 +13,7 @@ public class Item
     private long Id;
 
     @ManyToOne
-
+    @JoinColumn(name = "UserId")
     private User Writer;
     private String Title;
     private String Description;
@@ -24,8 +23,8 @@ public class Item
     {
     }
 
-    public Item(int id, User writer, String title, String description, Date releaseDate) {
-        Id = id;
+    public Item(User writer, String title, String description, Date releaseDate)
+    {
         Writer = writer;
         Title = title;
         Description = description;
@@ -34,10 +33,6 @@ public class Item
 
     public long getId() {
         return Id;
-    }
-
-    public void setId(long id) {
-        Id = id;
     }
 
     public User getWriter() {

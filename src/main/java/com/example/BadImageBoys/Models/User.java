@@ -10,7 +10,7 @@ public class User
 {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long Id;
+    private Long UserId;
     private String Username;
 
     //UserType (check later for security reasons)
@@ -19,20 +19,19 @@ public class User
 
     public User(){}
 
-    public User(long id, String username)
+    public User(String username)
     {
         super();
-        this.Id = id;
         this.Username = username;
     }
 
     public long getId()
     {
-        return Id;
+        return UserId;
     }
     public void setId(long id)
     {
-        this.Id = id;
+        this.UserId = id;
     }
     public  String getUsername()
     {
@@ -45,6 +44,6 @@ public class User
 
     public String ToString()
     {
-        return Id + " " + Username;
+        return UserId + " " + Username;
     }
 }

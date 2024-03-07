@@ -14,8 +14,8 @@ public class Video extends Item
     public Video() {
     }
 
-    public Video(int id, User writer, String title, String description, Date releaseDate, String videoLink, String link) {
-        super(id, writer, title, description, releaseDate);
+    public Video(User writer, String title, String description, Date releaseDate, String videoLink, String link) {
+        super(writer, title, description, releaseDate);
         VideoLink = videoLink;
         Link = link;
     }
