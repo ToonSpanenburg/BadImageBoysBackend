@@ -10,8 +10,8 @@ public class User
 {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
-    private String username;
+    private Long Id;
+    private String Username;
 
     //UserType (check later for security reasons)
     //mail
@@ -19,27 +19,32 @@ public class User
 
     public User(){}
 
-    public User(long Id, String Username)
+    public User(long id, String username)
     {
         super();
-        this.id = Id;
-        this.username = Username;
+        this.Id = id;
+        this.Username = username;
     }
 
     public long getId()
     {
-        return id;
+        return Id;
     }
-    public void setId(long Id)
+    public void setId(long id)
     {
-        this.id = Id;
+        this.Id = id;
     }
     public  String getUsername()
     {
-        return username;
+        return Username;
     }
-    public void setUsername(String Username)
+    public void setUsername(String username)
     {
-        this.username = Username;
+        this.Username = username;
+    }
+
+    public String ToString()
+    {
+        return Id + " " + Username;
     }
 }
