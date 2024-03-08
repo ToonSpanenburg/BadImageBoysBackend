@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.*;
 
 @RestController
 public class HomeController
@@ -25,7 +25,6 @@ public class HomeController
         this.itemService = itemService;
     }
 
-    @RequestMapping("/")
     public String hello()
     {
         User testUser = new User("TestUser");
@@ -37,5 +36,11 @@ public class HomeController
         itemService.save(testItem);
         itemService.save(anotherTestItem);
         return "Hello User";
+    }
+    @RequestMapping("/")
+    public List<Item> getAllItems()
+    {
+        List<Item> allItems = itemService.findAll();
+        return allItems;
     }
 }
